@@ -28,10 +28,15 @@ Route::controller(AuthController::class)->group(function()
 });
 Route::group(['middleware'=>'auth:api'],function()
 {
-    Route::post('/add-category',[CategoryController::class,'add_category']);
+    Route::group(['middleware'=>'is_admin'],function()
+    {
+        Route::post('/add-category',[CategoryController::class,'add_category']);
+        Route::post('/add-product',[ProductsController::class,'products']);
+
+    });
+    
     Route::get('/category-list',[CategoryController::class,'get_category']);
 
-    Route::post('/add-product',[ProductsController::class,'products']);
     Route::get('/prod-list',[ProductsController::class,'index']);
 
 });

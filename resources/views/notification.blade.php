@@ -31,7 +31,6 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Send Notification</button>
                         </form>
-    
                     </div>
                 </div>
             </div>
